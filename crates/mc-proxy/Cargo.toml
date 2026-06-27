@@ -1,0 +1,25 @@
+[package]
+name = "mc-proxy"
+version.workspace = true
+edition.workspace = true
+description = "TCP proxy that sits between Minecraft clients and the Java server, with packet-level introspection"
+
+[dependencies]
+mc-proto = { path = "../mc-proto" }
+mc-core = { path = "../mc-core" }
+flate2 = "1"
+uuid = { version = "1", features = ["v4"] }
+
+tokio = { version = "1", features = ["net", "io-util", "macros", "rt-multi-thread", "time", "sync"] }
+bytes = "1"
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[[bin]]
+name = "mc-proxy"
+path = "src/main.rs"
+
+[[bin]]
+name = "mc-rust-server"
+path = "src/bin/mc_rust_server.rs"

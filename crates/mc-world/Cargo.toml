@@ -1,0 +1,19 @@
+[package]
+name = "mc-world"
+version.workspace = true
+edition.workspace = true
+description = "Minecraft world format parser: NBT, Region/MCA, Chunk data (26.x compatible)"
+
+[dependencies]
+mc-core = { path = "../mc-core" }
+
+bytes = "1"
+thiserror = "2"
+anyhow = "1"
+flate2 = "1"
+serde = { version = "1", features = ["derive"] }
+tracing = "0.1"
+
+[[bin]]
+name = "mc-world-inspect"
+path = "src/bin/inspect.rs"
